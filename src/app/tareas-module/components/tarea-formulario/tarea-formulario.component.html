@@ -1,1 +1,33 @@
-<p>tarea-formulario works!</p>
+<div class="border-primary mt-3">
+    <h3 class="text-center">Agregar nueva tarea</h3>
+    <hr>
+    <form [formGroup]="tareaForm" (submit)="OnFormSubmit()" autocomplete="off">
+        <div>
+            <div class="form-floating mb-2">
+                <input class="form-control" 
+                    formControlName="titulo"
+                    type="text" 
+                    id="titulo" 
+                    placeholder="">
+                <label for="titulo">*Titulo</label>
+            </div>
+            <span  *ngIf="isFieldValid('titulo')"
+            class="text-danger">
+                El titulo es requerido y tiene que tener por lo menos 5 caracteres.
+            </span>
+        </div>
+        <div>
+            <div class="form-floating mb-2">
+                <textarea class="form-control" 
+                    formControlName="descripcion"
+                    id="descripcion" rows="10" placeholder=""></textarea>
+                <label for="descripcion">*Descripción</label>
+            </div>
+            <span *ngIf="isFieldValid('descripcion')"
+                class="text-danger">
+                La descripcion es requerida y debe tener por lo menos 5 caracteres.
+            </span>
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Guardar</button>
+    </form>
+</div>

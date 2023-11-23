@@ -1,13 +1,17 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { MenuItem } from '../../models/menu.model';
 
 @Component({
   selector: 'shared-menu',
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: './menu.component.html',
-  styleUrl: './menu.component.css'
+  styleUrls: ['./menu.component.css']
 })
 export class MenuComponent {
+  tareaMenuItems: MenuItem[] = [];
+  paisesMenuItems: MenuItem[] = [];
 
+  constructor() {
+    this.tareaMenuItems.push({route: '/tareas/mi-lista', text: 'Mis tareas'});
+    this.tareaMenuItems.push({route: '/tareas/nueva-tarea', text: 'Agregar tareas'});
+  }
 }
